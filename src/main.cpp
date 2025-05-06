@@ -34,7 +34,7 @@ void config_INT0() {
 ISR(ADC_vect) {
 
   valoradc = ADC;
-  voltaje = ((long)valoradc * 50) / 1023;
+  voltaje = ((long)valoradc * 50+511) / 1023;
   entero = voltaje / 10;
   decima = voltaje % 10;
   ADCSRA |= (1 << ADSC);
